@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*<!--过渡-->*/
+        #transition_box {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            background-color: red;
+            float: left;
+            /*设置过渡属性*/
+            /*transition-property:background-color ;*/
+            /*默认是ease，由慢到快到慢的过程*/
+            transition-property: margin-left;
+            /*设置过渡的时间*/
+            transition-duration: 3s;
+            /*慢速开始*/
+            transition-timing-function: ease-in;
+            /*匀速*/
+            /*transition-timing-function: linear;*/
+            /*延迟*/
+            transition-delay: 1s;
+        }
+
+        #transition_box:hover {
+            margin-left: 500px;
+        }
+
+        /*圆角*/
+        #circle_box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            margin: 10px auto;
+            margin-left: 800px;
+            /*float: right;*/
+            /* 水平阴影的位置 垂直阴影的位置 模糊的程度 阴影的大小*/
+            box-shadow: -5px 0 10px 10px #008B8B;
+            border-radius: 10px 20px 30px 40px;
+        }
+
+        /*<!--背景-->*/
+        #bgc_box {
+            width: 200px;
+            height: 200px;
+            border: 10px solid red;
+            padding: 50px;
+            margin: 50px;
+            background: url("./peiqi.jpg") no-repeat;
+            background-size: cover;
+            float: left;
+            /*指定背景图片的位置区域*/
+            /*
+            background-origin: padding-box;
+            background-origin: border-box;
+            background-origin: content-box;
+            */
+            background-color: yellow;
+            /*设置背景颜色的位置*/
+            /*background-clip: content-box;*/
+            background-clip: padding-box;
+            /*background-clip: border-box;*/
+        }
+
+        #move_box {
+            width: 200px;
+            height: 200px;
+            background-color: green;
+            float: left;
+            margin-top: 50px;
+            line-height: 200px;
+            text-align: center;
+            /*
+            animation-name: change;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            /*规定动画执行的次数，默认是一次
+            animation-iteration-count: infinite;*/
+
+            animation: move 2s linear infinite;
+        }
+
+        @keyframes change {
+
+            0% {
+                background-color: white;
+            }
+            25% {
+                background-color: yellow;
+            }
+            75% {
+                background-color: yellowgreen;
+            }
+            100% {
+                background-color: green;
+            }
+        }
+
+        @keyframes move {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /*鼠标悬浮时停止动画*/
+        #move_box:hover {
+            animation-play-state: paused;
+        }
+/*边框*/
+         #border_box{
+            width: 200px;
+            height: 200px;
+            margin: 100px 0 100px 0;
+             line-height: 200px;
+            text-align: center;
+             float: right;
+            border: 20px solid red;
+            /*background-image: url("../images/peiqi.jpg");*/
+            /*设置边框图片*/
+            border-image-source: url("./border.png");
+            /*border-image-slice: 30;*/
+            border-image-repeat: round;
+        }
+
+         #linear_gradient {
+            width: 200px;
+            height: 200px;
+               line-height: 200px;
+            text-align: center;
+             margin: 400px auto;
+            background:repeating-linear-gradient(red, yellow 10% ,blueviolet 20%)
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="transition_box">鼠标悬浮移动</div>
+<div id="circle_box"></div>
+<div id="bgc_box"></div>
+<div id="move_box">鼠标悬浮停止</div>
+<div id="border_box">图像边框</div>
+<div id="linear_gradient">线性渐变</div>
+
+</body>
+</html>
